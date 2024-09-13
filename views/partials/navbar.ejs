@@ -1,0 +1,40 @@
+<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">FeastFarm</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="/products">All</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Looking For
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/products/fruit">Fruits</a></li>
+              <li><a class="dropdown-item" href="/products/dairy">Diary Products</a></li>
+              <li><a class="dropdown-item" href="/products/vegetables">Vegetables</a></li>
+              <li><a class="dropdown-item" href="/products/nonveg">Non-veg</a></li>
+            </ul>
+          </li>
+          <% if(currentUser && currentUser._id.equals('66e34ce19cbe0cbdb56c4ff0')) {%>
+            <a class="nav-link" href="/products/new">Add Product</a>
+            <% } %>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <% if(!currentUser) {%>
+              <a class="nav-link me-auto" href="/login"> Login</a>
+              <a class="nav-link me-auto" href="/register">Register</a>
+          <% } else{%>
+            <form action="/cart" method="GET" class="d-inline">
+              <input type="hidden" name="userId" value="<%= currentUser._id %>">
+              <button type="submit" class="btn btn-outline-light">Cart</button>
+          </form>
+              <a class="nav-link me-auto" href="/logout"> Logout</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>

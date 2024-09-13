@@ -1,0 +1,7 @@
+<% layout('layouts/boilerplate') %>
+<form action="/cart/add" method="POST">
+    <input type="hidden" name="userId" value="USER_ID"> <!-- Replace with actual user ID -->
+    <input type="hidden" name="productId" value="PRODUCT_ID"> <!-- Replace with actual product ID -->
+    <input type="number" name="quantity" value="1" min="1">
+    <button type="submit">Add to Cart</button>
+</form>

@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">
+    <h1 class="mt-5">Order History</h1>
+    <% if (orders.length > 0) { %>
+        <div class="group ">
+            <% orders.forEach(order => { %>
+                <div class="list-group-item ">
+                    <h5>Order ID: <%= order._id %></h5>
+                    <p>Order Date: <%= order.createdAt.toDateString() %></p>
+                    <ul class="list-group">
+                        <% order.items.forEach(item => { %>
+                            <li class="list-group-item order-item bg-warning">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>Product:</strong> <%= item.productId.name %> <br>
+                                        <strong>Quantity:</strong> <%= item.quantity %> <br>
+                                        <strong>Price:</strong> ₹<%= item.price %>
+                                    </div>
+                                    <div>
+                                        <img src="<%= item.productId.image %>" alt="<%= item.productId.name %>" class="img-thumbnail" style="max-width: 100px;">
+                                    </div>
+                                </div>
+                            </li>
+                        <% }) %>
+                    </ul>
+                    <div class="order-total mt-3 bg-warning">
+                        <p>Total Amount: ₹<%= order.total %></p>
+                        <p>Payment Mode: Cash on Delivery (COD)</p>
+                        <hr>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No orders found.</p>
+    <% } %>
+</div>

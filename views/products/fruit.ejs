@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') %>
+<body>
+    <h1>Fruits </h1>
+    <div class=" container">
+        <div class="row">
+                <% for (let prod of products) { %>
+                        <div class="col-md-3 mb-3">
+                                <div class="card" style="width: 18rem;">
+                                        <a href="/products/<%=prod._id %>" class="text-decoration-none text-reset">
+                                        <img src="<%= prod.image %>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title"><%= prod.name %></h5>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                        <hr>
+                                          <li class="list-group-item"> Price: &#8377; <%= prod.price %></li>
+                                        </ul>
+                                        </a>
+                                </div>
+                        </div>
+                <% } %>
+
+        </div>
+     </div>

@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">
+    <div class="alert alert-success mt-5" role="alert">
+        <h1 class="alert-heading">Order Placed Successfully!</h1>
+        <p>Your order has been placed successfully.</p>
+        <hr>
+        <p class="mb-0">Tracking ID: <%= orderHistory._id %></p>
+    </div>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <ul class="list-group">
+            <% orderHistory.items.forEach(item => { %>
+                <li class="list-group-item order-item">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <strong>Product:</strong> <%= item.productId.name %> <br>
+                            <strong>Quantity:</strong> <%= item.quantity %> <br>
+                            <strong>Price:</strong> ₹<%= item.price %>
+                        </div>
+                        <div>
+                            <img src="<%= item.productId.image %>" alt="<%= item.productId.name %>" class="img-thumbnail" style="max-width: 100px;">
+                        </div>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+        <div class="order-total mt-3">
+            <p>Total Amount: ₹<%= orderHistory.total %></p>
+            <p>Payment Mode: Cash on Delivery (COD)</p>
+        </div>
+    </div>
+
+    <a href="/" class="btn btn-primary mt-3">Go back to home</a>
+</div>

@@ -1,0 +1,97 @@
+<% layout('layouts/boilerplate') %>
+
+<div class=" container mt-5">
+        <a href="/products/fruit" id="fruits" class="text-decoration-none text-reset"><h3>Fruits </h3></a>
+        <div class="row">
+                <% let fruitProducts = products.filter(prod => prod.category == "fruit").slice(0, 4); %>
+                <% for (let prod of fruitProducts) { %>
+                        <div class="col-md-3 mb-3">
+                                <div class="card" style="width: 18rem;">
+                                        <a href="/products/<%=prod._id %>" class="text-decoration-none text-reset">
+                                        <img src="<%= prod.image %>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title"><%= prod.name %></h5>
+                                          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                          <li class="list-group-item">&#8377; <%= prod.price %></li>
+                                        </ul>
+                                        </a>
+                                </div>
+                        </div>
+                <% } %>
+
+        </div>
+     </div>
+
+    <a href="/products/dairy" id="dairyProducts" class="text-decoration-none text-reset"><h3>Dairy</h3></a>
+    <div class=" container" >
+        <div class="row">
+                <% let dairyProducts = products.filter(prod => prod.category == "dairy").slice(0, 4); %>
+                <% for (let prod of dairyProducts) { %>
+                        <div class="col-md-3 mb-3">
+                                <div class="card" style="width: 18rem;">
+                                        <a href="/products/<%=prod._id %>" class="text-decoration-none text-reset">
+                                        <img src="<%= prod.image %>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title"><%= prod.name %></h5>
+                                          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                          <li class="list-group-item">&#8377; <%= prod.price %></li>
+                                        </ul>
+                                        </a>
+                                </div>
+                        </div>
+                <% } %>
+
+        </div>
+     </div>
+
+    <a href="/products/vegetables" id="vegetables" class="text-decoration-none text-reset"><h3>Vegetables</h3></a>
+    <div class=" container" >
+        <div class="row">
+                <% let VegProducts = products.filter(prod => prod.category == "veg").slice(0, 4); %>
+                <% for (let prod of VegProducts) { %>
+                        <div class="col-md-3 mb-3">
+                                <div class="card" style="width: 18rem;">
+                                        <a href="/products/<%=prod._id %>" class="text-decoration-none text-reset">
+                                        <img src="<%= prod.image %>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title"><%= prod.name %></h5>
+                                          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                          <li class="list-group-item">&#8377; <%= prod.price %></li>
+                                        </ul>
+                                        </a>
+                                </div>
+                        </div>
+                <% } %>
+
+        </div>
+     </div>
+
+    <a href="/products/nonveg" id="nonveg" class="text-decoration-none text-reset"><h3>Non-veg</h3></a>
+    <div class=" container">
+        <div class="row">
+                <% let nonVegProducts = products.filter(prod => prod.category == "nonVeg").slice(0, 4); %>
+                <% for (let prod of nonVegProducts) { %>
+                        <div class="col-md-3 mb-3">
+                                <div class="card" style="width: 18rem;">
+                                        <a href="/products/<%=prod._id %>" class="text-decoration-none text-reset">
+                                        <img src="<%= prod.image %>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title"><%= prod.name %></h5>
+                                          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                          <li class="list-group-item">&#8377; <%= prod.price %></li>
+                                        </ul>
+                                        </a>
+                                </div>
+                        </div>
+                <% } %>
+
+        </div>
+</div>

@@ -1,0 +1,34 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="container mt-5"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Edit Product</h1>
+                <form action="/products/<%=prod._id%>?_method=PUT" method="POST" novalidate class="needs-validation" autocomplete="off">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="product[name]" value="<%=prod.name %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category:</label>
+                        <select class="form-select" id="category" name="product[category]" required>
+                            <option value="fruit" <%= prod.category === 'fruit' ? 'selected' : '' %>>Fruit</option>
+                            <option value="dairy" <%= prod.category === 'dairy' ? 'selected' : '' %>>Dairy</option>
+                            <option value="veg" <%= prod.category === 'veg' ? 'selected' : '' %>>Vegetables</option>
+                            <option value="nonVeg" <%= prod.category === 'nonVeg' ? 'selected' : '' %>>Non-Veg</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="number" class="form-control" id="price" name="product[price]" value="<%=prod.price %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image link:</label>
+                        <input type="text" class="form-control" id="image" name="product[image]" value="<%=prod.image %>" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <a href="/products/<%=prod._id%>" class="btn btn-secondary ms-2">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container mt-5">
+    <form action="/cart/order-history" method="POST" class="d-inline">
+        <input type="hidden" name="userId" value="<%= currentUser._id %>">
+        <button type="submit" class="btn btn-danger btn-sm">Order History</button>
+    </form>
+    <h1 class="mb-4">Your Cart</h1>
+    <% if(cart && cart.items.length > 0) { %>
+        <div class="row">
+            <% cart.items.forEach(item => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="<%= item.productId.image %>" class="card-img-top" alt="<%= item.productId.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= item.productId.name %></h5>
+                            <p class="card-text">Price: ₹<%= item.productId.price %></p>
+                            <p class="card-text">Quantity: <%= item.quantity %></p>
+                            <p class="card-text">Total: ₹<%= item.price %></p>
+                            <form action="/cart/remove" method="POST" class="d-inline">
+                                <input type="hidden" name="productId" value="<%= item.productId._id %>">
+                                <input type="hidden" name="userId" value="<%= currentUser._id %>">
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="mt-4">
+            <h3>Total: ₹<%= cart.total %></h3>
+            <form action="/cart/checkout" method="POST" class="d-inline">
+                <input type="hidden" name="userId" value="<%= currentUser._id %>">
+                <button type="submit" class="btn btn-danger btn-sm">Place Order</button>
+            </form>
+        </div>
+    <% } else { %>
+        <p>Your cart is empty.</p>
+        <a href="/products" class="btn btn-primary">Continue Shopping</a>
+    <% } %>
+</div>
