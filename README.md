@@ -7,7 +7,7 @@ The platform is built using EJS(embedded JavaScript) for the frontend, MongoDB f
 ## Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/FeastFarm.git
+   git clone https://github.com/Dheeraj-Matole/FeastFarm.git
    cd FeastFarm
 2. Install dependencies
    npm install
@@ -19,7 +19,7 @@ The platform is built using EJS(embedded JavaScript) for the frontend, MongoDB f
   navigate to http://localhost:3000 in the browser
 ----------------------------------------------------------------
 
-## Packages / Dependencies used
+# Packages / Dependencies used
 mongoose : Database connectivity
 express : server 
 ejs : embedded JavaScript for easier implementation of web pages
@@ -29,7 +29,7 @@ connect-flash : Flash messages to notify users of their task
 express-session : required of passport Auth. to keep track of logins and logouts.
 Bootstrap: For designing and responsiveness of web pages.
 -----------------------------------------------------------------
-## Usage
+# Usage
 
 1. Register an account:
 Navigate to the registration page and create a new account.
@@ -43,7 +43,7 @@ Browse the available food items and add them to your cart.
 5. Place an order:
 Review your cart and proceed to checkout. You will receive an order confirmation with a tracking ID.
 ------------------------------------------------------------------
-##Features
+#Features
 
 1. User registration and authentication
 2. Browsing food items
@@ -53,7 +53,7 @@ Review your cart and proceed to checkout. You will receive an order confirmation
 6. Order confirmation with tracking ID
 7. Order history
 ------------------------------------------------------------------
-##Database Schema
+#Database Schema
 Product
 {
     name: { type: String, required: true },
